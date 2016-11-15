@@ -1,0 +1,50 @@
+<!-- this loads the web components polyfill -->
+<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+<!-- this loads the web animations polyfill -->
+<script src="bower_components/web-animations-js/web-animations.min.js"></script>
+
+<!-- this makes it easy to configure a service worker using HTML -->
+<link rel="import" href="bower_components/platinum-sw/platinum-sw-elements.html">
+
+<!-- this makes it easy to configure a firebase app worker using HTML -->
+<link rel="import" href="bower_components/polymerfire/firebase-app.html">
+
+<dom-module id="application">
+<template>
+<style>
+</style>
+
+
+<!-- 
+
+From: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#10
+
+The configuration above describes a service worker that will cache all HTTP network requests and ensure that the cache is available even if the app is accessed when the user is offline.
+
+The advantage of using Web Components to configure our service worker is that the entire configuration can be done declaratively. Using simple HTML tags and attributes, we can provide to an underlying JavaScript implementation everything it needs to know to configure and launch our service worker.
+
+Our configuration informs the service worker how to approach booting up and upgrading. We provide the path to the sw-import.js script we created earlier so that it can be loaded. Note that we can even declaratively describe our cache validation strategy!
+
+ -->
+<platinum-sw-register
+    auto-register
+    skip-waiting
+    clients-claim
+    reload-on-install
+    href="sw-import.js">
+  <platinum-sw-cache
+      default-cache-strategy="networkFirst">
+  </platinum-sw-cache>
+</platinum-sw-register>
+
+</template>
+
+  <script>
+Polymer({
+
+  is: 'application',
+});
+  </script>
+
+</dom-module>
