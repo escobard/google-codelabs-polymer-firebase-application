@@ -25,12 +25,21 @@
 	</firebase-auth>
 
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#22 -->
+	<!--  Docs on :  https://elements.polymer-project.org/elements/paper-fab -->
 	<paper-fab
     icon="add"
     on-tap="create"
     disabled="[[!online]]"
     aria-label="Add note">
 	</paper-fab>
+
+	<!--  Docs: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#22 
+	docs cont: https://github.com/PolymerLabs/note-app-elements/blob/master/na-editor.html -->
+	<na-editor
+    id="editor"
+    note="{{editableNote}}"
+    on-close="commitChange">
+</na-editor>
   </template>
 
   <script>
