@@ -4,7 +4,8 @@
 <dom-module id="main-app">
   <template>
 	<style include="note-app-shared-styles"></style>
-	<na-toolbar></na-toolbar>
+	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
+	<na-toolbar signed-in="[[signedIn]]" on-sign-out="signOut"></na-toolbar>
 	<na-login></na-login>
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
