@@ -6,6 +6,7 @@
 	<style include="note-app-shared-styles"></style>
 	<na-toolbar></na-toolbar>
 	<na-login></na-login>
+	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
 	<firebase-auth
     id="auth"
     app-name="notes"
@@ -14,7 +15,11 @@
   </template>
   <script>
     Polymer({
-      is: 'main-app'
+      is: 'main-app',
+
+      // more on this here: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#19
+      // and here: https://github.com/PolymerLabs/note-app-elements/blob/master/na-behavior.html
+      behaviors: [Polymer.NoteAppBehavior]
     });
   </script>
 </dom-module>
