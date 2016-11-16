@@ -13,7 +13,7 @@
 
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
 	<na-login on-sign-in="signIn" signed-in="[[signedIn]]" disabled="[[!online]]"></na-login>
-
+git a
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
 	<firebase-auth
@@ -39,7 +39,16 @@
     id="editor"
     note="{{editableNote}}"
     on-close="commitChange">
-</na-editor>
+	</na-editor>
+
+	<!--  Docs: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#23 
+	docs cont: https://github.com/firebase/polymerfirel -->
+	<firebase-document
+    id="document"
+    app-name="notes"
+    path="[[editableNoteId]]"
+    data="{{editableNote}}">
+	</firebase-document>
   </template>
 
   <script>
