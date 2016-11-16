@@ -14,15 +14,7 @@
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
 	<na-login on-sign-in="signIn" signed-in="[[signedIn]]" disabled="[[!online]]"></na-login>
 
-	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
-	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
-	<firebase-auth
-    id="auth"
-    app-name="notes"
-    provider="google"
-    signed-in="{{signedIn}}"
-    user="{{user}}">
-	</firebase-auth>
+	
 
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#22 -->
 	<!--  Docs on :  https://elements.polymer-project.org/elements/paper-fab -->
@@ -41,14 +33,33 @@
     on-close="commitChange">
 	</na-editor>
 
+	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
+	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
+	<firebase-auth
+    id="auth"
+    app-name="notes"
+    provider="google"
+    signed-in="{{signedIn}}"
+    user="{{user}}">
+	</firebase-auth>
+	
 	<!--  Docs: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#23 
-	docs cont: https://github.com/firebase/polymerfirel -->
+	docs cont: https://github.com/firebase/polymerfire -->
 	<firebase-document
     id="document"
     app-name="notes"
     path="[[editableNoteId]]"
     data="{{editableNote}}">
 	</firebase-document>
+
+	<!--  Docs: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#25
+	docs cont: https://github.com/firebase/polymerfire -->
+	<firebase-query
+    id="query"
+    app-name="notes"
+    path="/notes/[[user.uid]]"
+    data="{{notes}}">
+	</firebase-query>
   </template>
 
   <script>
