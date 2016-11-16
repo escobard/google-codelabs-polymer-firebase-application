@@ -32,6 +32,16 @@
     note="{{editableNote}}"
     on-close="commitChange">
 	</na-editor>
+	
+	<!--  Docs: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#25 
+	docs cont: https://github.com/PolymerElements/app-storage/blob/master/app-indexeddb-mirror/app-indexeddb-mirror.html -->
+	<app-indexeddb-mirror
+    session="[[user.uid]]"
+    key="notes"
+    data="{{notes}}"
+    persisted-data="{{persistedNotes}}">
+	</app-indexeddb-mirror>
+
 
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#17 -->
 	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#20 -->
