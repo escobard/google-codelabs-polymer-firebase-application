@@ -105,7 +105,14 @@
    	  },
       toEditableId: function(noteId) {
       return this.notesPath + '/' + noteId;
-    }
+    	},
+
+      // https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#23
+      // https://github.com/PolymerLabs/note-app-elements/blob/master/na-behavior.html#L27-L29
+      get isEditable() {
+      return this.online;
+
+    	}
     });
   </script>
 
