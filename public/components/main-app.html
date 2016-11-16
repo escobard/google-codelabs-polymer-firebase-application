@@ -24,6 +24,13 @@
     user="{{user}}">
 	</firebase-auth>
 
+	<!--  More on : https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#22 -->
+	<paper-fab
+    icon="add"
+    on-tap="create"
+    disabled="[[!online]]"
+    aria-label="Add note">
+	</paper-fab>
   </template>
 
   <script>
