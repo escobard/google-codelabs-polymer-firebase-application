@@ -32,7 +32,12 @@
 
       // more on this here: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#19
       // and here: https://github.com/PolymerLabs/note-app-elements/blob/master/na-behavior.html
-      behaviors: [Polymer.NoteAppBehavior]
+      behaviors: [Polymer.NoteAppBehavior],
+
+      // more on this here: https://codelabs.developers.google.com/codelabs/polymer-firebase-pwa/index.html?index=..%2F..%2Findex#21
+      signIn: function() {
+      	this.$.auth.signInWithPopup();
+      }
     });
   </script>
 
